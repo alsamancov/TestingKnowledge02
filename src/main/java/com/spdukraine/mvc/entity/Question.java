@@ -24,10 +24,10 @@ public class Question {
     public Question() {
     }
 
-    public Question(String textQuestion, int level, List<Answer> hisAnswers) {
+    public Question(String textQuestion, int level) {
         this.textQuestion = textQuestion;
         this.level = level;
-        this.hisAnswers = hisAnswers;
+
     }
 
     public int getId() {

@@ -3,37 +3,14 @@ package com.spdukraine.mvc.repository.impl;
 
 import com.spdukraine.mvc.entity.Answer;
 import com.spdukraine.mvc.repository.dao.AnswerDao;
+import com.spdukraine.mvc.repository.dao.HibernateDao;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class AnswerDaoImpl implements AnswerDao {
-    @Override
-    public void add(Answer answer) {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public Answer findAnswerById(int id) {
-        return null;
-    }
-
-    @Override
-    public void updateAnswer(Answer answer) {
-
-    }
-
-    @Override
-    public List<Answer> getAllAnswer() {
-        return null;
-    }
-
-    @Override
-    public List<Answer> findAnswerByQuestionId(int questionId) {
-        return null;
+@Repository("answerDao")
+public class AnswerDaoImpl extends HibernateDao<Answer, Integer> implements AnswerDao {
+    public List<Answer> getAnswersByQuestionId(Integer key){
+        return currentSession().createQuery("from Answer a where a.questionId=key").list();
     }
 }

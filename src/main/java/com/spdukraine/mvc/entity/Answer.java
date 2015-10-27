@@ -24,10 +24,9 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(String textAnswer, boolean correct, Question question) {
+    public Answer(String textAnswer, boolean correct) {
         this.textAnswer = textAnswer;
         this.correct = correct;
-        this.question = question;
     }
 
     public Long getAnswerId() {

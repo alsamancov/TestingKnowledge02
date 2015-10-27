@@ -23,16 +23,19 @@ public class InMemoryDao<E, K> implements GenericDao<E, K> {
 
     @Override
     public void delete(E entity) {
-
+        entities.remove(entity);
     }
 
     @Override
     public E find(K key) {
-        return null;
+        if(entities.isEmpty()) {
+            return null;
+        }
+        return entities.get(0);
     }
 
     @Override
     public List<E> list() {
-        return null;
+        return entities;
     }
 }
